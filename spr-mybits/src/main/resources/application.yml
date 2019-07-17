@@ -1,0 +1,48 @@
+
+slave:
+  hosts: slave1,slave2
+hikari:
+  master:
+    jdbc-url: jdbc:mysql://127.0.0.1:3306/master?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: root
+    maximum-pool-size: 10
+    pool-name: master(localhost)
+    connection-timeout: 30000
+    idle-timeout: 600000
+    max-lifetime: 1765000
+    data-source-properties:
+      cachePrepStmts: true
+      prepStmtCacheSize: 250
+      prepStmtCacheSqlLimit: 2048
+      useServerPrepStmts: true
+      useLocalSessionState: true
+      useLocalTransactionState: true
+      rewriteBatchedStatements: true
+      cacheResultSetMetadata: true
+      cacheServerConfiguration: true
+      elideSetAutoCommits: true
+      maintainTimeStats: false
+  slave1:
+    jdbc-url: jdbc:mysql://127.0.0.1:3306/slave01?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: root
+    maximum-pool-size: 10
+    pool-name: slave1(localhost)
+    connection-timeout: 30000
+    idle-timeout: 600000
+    max-lifetime: 1765000
+#    read-only: true
+  slave2:
+    jdbc-url: jdbc:mysql://127.0.0.1:3306/slave02?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: root
+    maximum-pool-size: 10
+    pool-name: slave2(localhost)
+    connection-timeout: 30000
+    idle-timeout: 600000
+    max-lifetime: 1765000
+#    read-only: true
+mybatis:
+  mapper-locations: classpath:mapper/*/*.xml
+  config-location: classpath:mapper/mappings.xml

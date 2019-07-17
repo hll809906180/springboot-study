@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.leadeon.mybits.mapper.CityMapper">
+    <resultMap id="resultCity" type="cn.leadeon.mybits.entity.City">
+        <result property="cityCode" column="CITY_CODE"  />
+        <result property="cityName" column="CITY_NAME"  />
+    </resultMap>
+
+    <select id="getSlaveCityList" resultMap="resultCity">
+        select CITY_CODE,CITY_NAME from com_city
+    </select>
+
+    <select id="getMastCityList" resultMap="resultCity">
+        select CITY_CODE,CITY_NAME from com_city
+    </select>
+
+    <insert id="insertCitySlave01" parameterType="cn.leadeon.mybits.entity.City">
+      insert INTO  com_city(CITY_CODE,CITY_NAME) VALUES(#{cityCode},#{cityName})
+    </insert>
+
+    <insert id="insertCitySlave02" parameterType="cn.leadeon.mybits.entity.City">
+        insert INTO  com_city(CITY_CODE,CITY_NAME) VALUES(#{cityCode},#{cityName})
+    </insert>
+</mapper>
