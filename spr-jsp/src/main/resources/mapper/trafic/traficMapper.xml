@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.leadeon.sprjsp.mapper.TraficluckMapper">
+    <resultMap id="resultTrafic" type="cn.leadeon.sprjsp.entity.TraficLuck">
+        <result property="id" column="ID"  />
+        <result property="receiveNum" column="RECEIVE_NUM"  />
+        <result property="receiveType" column="RECEIVE_TYPE"  />
+        <result property="openId" column="OPEN_ID"  />
+        <result property="giveOutNum" column="GIVEOUT_NUM"  />
+        <result property="purchase" column="PURCHASE_NUM"  />
+        <result property="luckId" column="LUCK_ID"  />
+        <result property="dealTime" column="DEAL_TIME"  />
+        <result property="subsetId" column="SUBSET_ID"  />
+        <result property="md5SubsetId" column="MD5_SUBSET_ID"  />
+        <result property="subsetPackey" column="SUBSET_PACKET_KEY"  />
+        <result property="rechageType" column="RECHARGE_TYPE"  />
+        <result property="subsetTraffic" column="SUBSET_TRAFFIC"  />
+        <result property="goodsType" column="GOODS_TYPE"  />
+        <result property="subcardCode" column="SUBCARD_CODE"  />
+        <result property="receiveProvince" column="RECEIVE_PROVINCE"  />
+        <result property="giveOutProvince" column="GIVEOUT_PROVINCE"  />
+    </resultMap>
+
+    <select id="find" resultMap="resultTrafic" parameterType="map">
+        select ID,RECEIVE_NUM,RECEIVE_TYPE,OPEN_ID,GIVEOUT_NUM,PURCHASE_NUM,LUCK_ID,DEAL_TIME,SUBSET_ID,MD5_SUBSET_ID,SUBSET_PACKET_KEY,
+        RECHARGE_TYPE,SUBSET_TRAFFIC,GOODS_TYPE,SUBCARD_CODE,RECEIVE_PROVINCE,GIVEOUT_PROVINCE
+        from traffic_luck_get_dtl
+        <if test="startOffset!=null and pageSize!=null">
+          limit #{startOffset},#{pageSize}
+        </if>
+    </select>
+
+    <select id="total" resultType="int" parameterType="map">
+        select COUNT(id) from traffic_luck_get_dtl
+    </select>
+
+    <select id="findAll" >
+
+    </select>
+</mapper>

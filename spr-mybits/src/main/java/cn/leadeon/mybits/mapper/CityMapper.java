@@ -1,11 +1,10 @@
 package cn.leadeon.mybits.mapper;
 
-import cn.leadeon.mybits.comm.dbconfig.TargetDataSource;
 import cn.leadeon.mybits.entity.City;
-import org.apache.ibatis.annotations.Mapper;
-import org.springframework.transaction.annotation.Transactional;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
+@Repository
 public interface CityMapper {
 
     List<City> getMastCityList();
