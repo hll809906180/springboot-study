@@ -7,10 +7,11 @@
 		<groupId>cn.leadeon</groupId>
 		<version>2.0-SNAPSHOT</version>
 	</parent>
-	<groupId>cn.tycoon</groupId>
-	<artifactId>spr-logback</artifactId>
+
+	<groupId>cn.leadeon</groupId>
+	<artifactId>spr-elsearch</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>spr-logback</name>
+	<name>spr-elsearch</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
@@ -20,9 +21,16 @@
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-elasticsearch</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
+		<dependency>
+		<groupId>org.projectlombok</groupId>
+		<artifactId>lombok</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
